@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>autocars. — Administration</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="login-view" class="login-wrap">
+  <div class="login-card">
+    <img src="assets/logo.jpg" alt="autocars." class="logo">
+    <p class="eyebrow">ESPACE ADMINISTRATION</p>
+    <h1>Gestion des réservations</h1>
+    <p class="muted">Accès réservé à l'agence.</p>
+    <form id="login-form">
+      <label>Mot de passe<input id="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Connexion</button>
+      <p id="login-message" class="message"></p>
+    </form>
+  </div>
+</div>
+
+<div id="admin-view" class="hidden">
+  <header class="topbar">
+    <a href="/" class="brand"><img src="assets/logo.jpg" alt="autocars."></a>
+    <div class="top-actions"><span id="storage-badge" class="badge">—</span><button id="logout" class="ghost">Déconnexion</button></div>
+  </header>
+  <main class="dashboard">
+    <div class="dash-head"><div><p class="eyebrow">TABLEAU DE BORD</p><h1>Réservations</h1></div><button id="refresh" class="ghost">Actualiser</button></div>
+    <div id="stats" class="stats"></div>
+    <section class="panel">
+      <div class="panel-head"><h2>Demandes clients</h2><select id="status-filter"><option value="all">Toutes</option><option value="pending">En attente</option><option value="confirmed">Confirmées</option><option value="rejected">Refusées</option><option value="completed">Terminées</option><option value="cancelled">Annulées</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>Référence</th><th>Client</th><th>Véhicule</th><th>Dates</th><th>Total</th><th>Statut</th><th>Action</th></tr></thead><tbody id="booking-body"></tbody></table></div>
+    </section>
+    <section class="panel"><div class="panel-head"><h2>Flotte</h2></div><div id="cars-grid" class="cars-grid"></div></section>
+  </main>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

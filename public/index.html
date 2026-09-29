@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Autocars — location de voitures, réservation simple et rapide.">
+  <meta name="theme-color" content="#151515">
+  <title>autocars. — Location de voitures</title>
+  <link rel="icon" href="assets/logo.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Accueil">
+      <img src="assets/logo.jpg" alt="autocars." class="brand-logo">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#vehicules">Véhicules</a>
+      <a href="#reservation">Réservation</a>
+      <a href="#agence">L'agence</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#reservation">Réserver</a>
+    <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LOCATION DE VOITURES</p>
+        <h1>Une voiture adaptée.<br><span>Une réservation simple.</span></h1>
+        <p class="hero-text">Une sélection claire de véhicules, des tarifs transparents et une demande de réservation en quelques étapes.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#vehicules">Voir les véhicules</a>
+          <a class="btn btn-ghost" href="#reservation">Faire une réservation</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-stat"><strong>250 DH</strong><span>à partir de / jour</span></div>
+        <div class="hero-line"></div>
+        <div class="hero-stat"><strong>5</strong><span>véhicules disponibles au catalogue</span></div>
+      </div>
+    </section>
+
+    <section id="vehicules" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">NOTRE FLOTTE</p>
+          <h2>Choisissez votre véhicule</h2>
+        </div>
+        <p class="section-note">Tarifs affichés par jour. La disponibilité est vérifiée au moment de la demande.</p>
+      </div>
+      <div id="fleet-grid" class="fleet-grid"></div>
+    </section>
+
+    <section class="process-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">COMMENT ÇA MARCHE</p>
+          <h2>Réserver en trois étapes</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <article><span>01</span><h3>Choisissez</h3><p>Sélectionnez la voiture et vos dates.</p></article>
+        <article><span>02</span><h3>Envoyez</h3><p>Renseignez vos coordonnées et le lieu de livraison.</p></article>
+        <article><span>03</span><h3>Confirmation</h3><p>L'agence vérifie la disponibilité et vous contacte.</p></article>
+      </div>
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-intro">
+        <p class="eyebrow">RÉSERVATION</p>
+        <h2>Votre demande, en quelques secondes.</h2>
+        <p>Le formulaire prépare toutes les informations nécessaires au traitement de la réservation côté agence.</p>
+        <ul class="check-list">
+          <li>Dates de prise en charge et de retour</li>
+          <li>Véhicule et prix calculé automatiquement</li>
+          <li>Coordonnées du client</li>
+          <li>Lieu de livraison / récupération</li>
+        </ul>
+      </div>
+
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span>Véhicule</span>
+            <select id="carId" name="carId" required></select>
+          </label>
+          <div class="price-box">
+            <span>Tarif</span>
+            <strong id="selected-price">—</strong>
+          </div>
+
+          <label class="field">
+            <span>Date de prise en charge</span>
+            <input id="pickupDate" name="pickupDate" type="date" required>
+          </label>
+          <label class="field">
+            <span>Date de retour</span>
+            <input id="returnDate" name="returnDate" type="date" required>
+          </label>
+
+          <label class="field">
+            <span>Nom complet</span>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Votre nom complet" required>
+          </label>
+          <label class="field">
+            <span>Téléphone</span>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+212 6..." required>
+          </label>
+
+          <label class="field">
+            <span>CIN / pièce d'identité</span>
+            <input id="cin" name="cin" type="text" placeholder="CIN" required>
+          </label>
+          <label class="field">
+            <span>Ville</span>
+            <input id="city" name="city" type="text" placeholder="Ville" required>
+          </label>
+
+          <label class="field full">
+            <span>Lieu de livraison / récupération</span>
+            <input id="deliveryLocation" name="deliveryLocation" type="text" placeholder="Adresse, hôtel, gare..." required>
+          </label>
+
+          <label class="field full">
+            <span>Message (facultatif)</span>
+            <textarea id="notes" name="notes" rows="3" placeholder="Une précision concernant votre réservation..."></textarea>
+          </label>
+        </div>
+
+        <div class="total-panel">
+          <div><span>Durée</span><strong id="days-output">—</strong></div>
+          <div><span>Total estimatif</span><strong id="total-output">—</strong></div>
+        </div>
+
+        <button class="btn btn-primary submit-btn" type="submit">Envoyer la demande</button>
+        <p class="form-legal">La demande n'est pas une confirmation définitive. L'agence doit valider la disponibilité.</p>
+        <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="agence" class="about-section">
+      <div>
+        <p class="eyebrow">L'AGENCE</p>
+        <h2>Simple, transparent, professionnel.</h2>
+      </div>
+      <div class="about-copy">
+        <p>autocars. présente une flotte pensée pour différents besoins : économique, berline premium et SUV.</p>
+        <p>Le site est conçu pour évoluer vers un espace de gestion permettant à l'agence de recevoir les demandes, vérifier les dates et confirmer ou refuser une réservation.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2>Une question avant de réserver ?</h2>
+      </div>
+      <div class="contact-card">
+        <div><span>Téléphone</span><strong>À configurer</strong></div>
+        <div><span>WhatsApp</span><strong>À configurer</strong></div>
+        <div><span>Adresse</span><strong>À configurer</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> autocars.</span>
+    <span>Location de voitures</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

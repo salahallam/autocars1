@@ -1,0 +1,42 @@
+{
+  "brand": "autocars.",
+  "currency": "DH",
+  "deliveryFee": 0,
+  "cars": [
+    {
+      "id": "dacia-sandero",
+      "name": "Dacia Sandero",
+      "price": 250,
+      "image": "assets/dacia-sandero.jpg",
+      "status": "available"
+    },
+    {
+      "id": "dacia-logan",
+      "name": "Dacia Logan",
+      "price": 250,
+      "image": "assets/dacia-logan.jpg",
+      "status": "available"
+    },
+    {
+      "id": "mercedes-c63",
+      "name": "Mercedes-AMG C63",
+      "price": 1000,
+      "image": "assets/mercedes-c63.jpg",
+      "status": "available"
+    },
+    {
+      "id": "mercedes-coupe",
+      "name": "Mercedes C Coupé",
+      "price": 1000,
+      "image": "assets/mercedes-coupe.jpg",
+      "status": "available"
+    },
+    {
+      "id": "mercedes-g-class",
+      "name": "Mercedes G-Class",
+      "price": 1000,
+      "image": "assets/mercedes-g-class.jpg",
+      "status": "available"
+    }
+  ]
+}
